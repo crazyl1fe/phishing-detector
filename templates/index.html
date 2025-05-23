@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phishing Detection</title>
+    <style>
+        body { font-family: Arial; background: #f4f4f4; padding: 30px; }
+        .container { background: #fff; padding: 20px; border-radius: 10px; width: 400px; margin: auto; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        h2 { text-align: center; }
+        input[type=number], button { width: 100%; padding: 10px; margin: 10px 0; }
+        .result { text-align: center; font-weight: bold; color: green; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Phishing Detection</h2>
+    <form action="/predict" method="post">
+        <input type="number" name="feature1" placeholder="Feature 1" step="any" required>
+        <input type="number" name="feature2" placeholder="Feature 2" step="any" required>
+        <input type="number" name="feature3" placeholder="Feature 3" step="any" required>
+        <input type="number" name="feature4" placeholder="Feature 4" step="any" required>
+        <button type="submit">Check</button>
+    </form>
+    {% if prediction_text %}
+        <p class="result">{{ prediction_text }}</p>
+    {% endif %}
+</div>
+</body>
+</html>
